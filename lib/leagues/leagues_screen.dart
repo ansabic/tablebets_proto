@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tablebets_proto/leagues/DataSource.dart';
 import 'package:tablebets_proto/leagues/leagues_cubit.dart';
+import 'package:tablebets_proto/leagues/match_cell.dart';
+import 'dart:convert';
 
 import 'header_filter/filter_screen.dart';
 
@@ -41,6 +45,21 @@ class LeaguesScreen extends StatelessWidget {
                       FilterScreen(name: "Today",),
                       FilterScreen(name: "Tomorrow",),
                     ],
+                  ),
+                ),
+                Expanded(
+                  child: ListView.separated(
+                    separatorBuilder: (context, index) => Divider(
+                      color: Colors.black,
+                    ),
+                    shrinkWrap: true,
+                    itemCount: DataSource.fromJson(json.decode(DataSource.json)).matches?.length ?? 0,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (BuildContext context, int index) => Padding (
+                        padding: EdgeInsets.all(5),
+                        child: MatchCell(team: DataSource.fromJson(json.decode(DataSource.json)).matches![index]),
+                      ),
+                    // child: MatchCell(),
                   ),
                 ),
               ],

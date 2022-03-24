@@ -1,3 +1,4 @@
+import 'package:bottom_sheet/bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tablebets_proto/betting_slip/betting_slip.dart';
@@ -17,20 +18,21 @@ class MainScreen extends StatelessWidget {
             bottomNavigationBar: BottomNavigationBar(
               onTap: (index) {
                 BlocProvider.of<MainScreenCubit>(context).changePosition(index);
-                switch(index) {
+                switch (index) {
                   case 0:
                     break;
                   case 1:
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const LeaguesScreen()),
+                      MaterialPageRoute(builder: (context) => LeaguesScreen()),
                     );
                     break;
                   case 2:
                     showFlexibleBottomSheet(
                       builder: (context, scrollController, bottomSheetOffset) {
                         return BettingSlip();
-                      }, context: context,
+                      },
+                      context: context,
                       minHeight: 0,
                       initHeight: 1,
                       maxHeight: 1,
@@ -46,7 +48,12 @@ class MainScreen extends StatelessWidget {
                 BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.leaderboard), label: "League"),
-                BottomNavigationBarItem(label: "Betting slip",icon: Icon(Icons.monetization_on, size: 35,)),
+                BottomNavigationBarItem(
+                    label: "Betting slip",
+                    icon: Icon(
+                      Icons.monetization_on,
+                      size: 35,
+                    )),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.list), label: "My bets"),
                 BottomNavigationBarItem(
@@ -61,5 +68,4 @@ class MainScreen extends StatelessWidget {
       ),
     );
   }
-
 }
