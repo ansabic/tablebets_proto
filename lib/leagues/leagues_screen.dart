@@ -20,7 +20,7 @@ class LeaguesScreen extends StatelessWidget {
           child: Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.white,
-              iconTheme: IconThemeData(color: Colors.blue),
+              iconTheme: const IconThemeData(color: Colors.blue),
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
@@ -39,7 +39,7 @@ class LeaguesScreen extends StatelessWidget {
                       FilterScreen(name: "4 hours",),
                       FilterScreen(name: "8 hours",),
                       FilterScreen(name: "Today",),
-                      FilterScreen(name: "To",),
+                      FilterScreen(name: "Tomorrow",),
                     ],
                   ),
                 ),
