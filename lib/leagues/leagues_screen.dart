@@ -10,7 +10,7 @@ class LeaguesScreen extends StatelessWidget {
       top: false,
         bottom: false,
         child: Scaffold(
-          appBar:
+          // appBar:
         ),
     );
   }
