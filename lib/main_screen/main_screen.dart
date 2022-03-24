@@ -16,10 +16,18 @@ class MainScreen extends StatelessWidget {
             bottomNavigationBar: BottomNavigationBar(
               onTap: (index) {
                 BlocProvider.of<MainScreenCubit>(context).changePosition(index);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const LeaguesScreen()),
-                );
+                switch(index) {
+                  case 0:
+                    break;
+                  case 1:
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const LeaguesScreen()),
+                    );
+                    break;
+                  case 2:
+                    break;
+                }
               },
               selectedItemColor: Colors.green,
               unselectedItemColor: Colors.grey,

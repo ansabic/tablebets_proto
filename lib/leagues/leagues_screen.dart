@@ -23,23 +23,27 @@ class LeaguesScreen extends StatelessWidget {
               iconTheme: IconThemeData(color: Colors.blue),
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: const [
                   Text("Leagues", style: TextStyle(color: Colors.blue),),
-                  Text("BundesLiga", style: TextStyle(color: Colors.black),),
+                  Text("Bundesliga", style: TextStyle(color: Colors.black),),
                 ],
               ),
             ),
-            body: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children:[
-                  FilterScreen(name: "All",),
-                  FilterScreen(name: "4 hours",),
-                  FilterScreen(name: "8 hours",),
-                  FilterScreen(name: "Today",),
-                  FilterScreen(name: "To",),
-                ],
-              ),
+            body: Column(
+              children: [
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children:const [
+                      FilterScreen(name: "All",),
+                      FilterScreen(name: "4 hours",),
+                      FilterScreen(name: "8 hours",),
+                      FilterScreen(name: "Today",),
+                      FilterScreen(name: "To",),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         );
