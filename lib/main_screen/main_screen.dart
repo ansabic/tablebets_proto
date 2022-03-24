@@ -1,5 +1,7 @@
+import 'package:bottom_sheet/bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tablebets_proto/betting_slip/betting_slip.dart';
 import 'package:tablebets_proto/main_screen/main_screen_cubit.dart';
 
 class MainScreen extends StatelessWidget {
@@ -15,6 +17,17 @@ class MainScreen extends StatelessWidget {
             bottomNavigationBar: BottomNavigationBar(
               onTap: (index) {
                 BlocProvider.of<MainScreenCubit>(context).changePosition(index);
+                if(index == 2) {
+                  showFlexibleBottomSheet(
+                    builder: (context, scrollController, bottomSheetOffset) {
+                      return BettingSlip();
+                    }, context: context,
+                    minHeight: 0,
+                    initHeight: 1,
+                    maxHeight: 1,
+                    anchors: [0, 0.5, 1],
+                  );
+                }
               },
               selectedItemColor: Colors.green,
               unselectedItemColor: Colors.grey,
@@ -23,6 +36,7 @@ class MainScreen extends StatelessWidget {
                 BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.leaderboard), label: "League"),
+                BottomNavigationBarItem(label: "Betting slip",icon: Icon(Icons.monetization_on, size: 35,)),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.list), label: "My bets"),
                 BottomNavigationBarItem(
