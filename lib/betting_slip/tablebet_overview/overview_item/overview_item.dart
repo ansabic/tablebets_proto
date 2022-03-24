@@ -18,13 +18,16 @@ class OverviewItem extends StatelessWidget {
       pointsRight = 1;
     }
     else {
-      resultLeft = data.leftScore.toString() + ":0";
-      resultRight = "0:" + data.rightScore.toString();
+
       if(data.leftScore > data.rightScore) {
+        resultLeft = data.leftScore.toString() + ":0";
+        resultRight = "0:" + data.rightScore.toString();
         pointsLeft = 3;
         pointsRight = 0;
       }
       else {
+        resultLeft = "0:" + data.leftScore.toString();
+        resultRight = "0:" + data.rightScore.toString();
         pointsLeft = 0;
         pointsRight = 3;
       }
