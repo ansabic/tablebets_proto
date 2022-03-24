@@ -17,6 +17,7 @@ class MainScreen extends StatelessWidget {
                 BlocProvider.of<MainScreenCubit>(context).changePosition(index);
               },
               selectedItemColor: Colors.green,
+              unselectedItemColor: Colors.grey,
               currentIndex: state.navigationPosition,
               items: const [
                 BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
