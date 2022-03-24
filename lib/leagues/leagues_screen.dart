@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LeaguesScreen extends StatelessWidget {
@@ -10,7 +9,18 @@ class LeaguesScreen extends StatelessWidget {
       top: false,
         bottom: false,
         child: Scaffold(
-          appBar:
+          appBar: AppBar(
+            backgroundColor: Colors.white,
+            iconTheme: IconThemeData(
+              color: Colors.blue
+            ),
+            title: Row(
+              children: [
+                Text("Leagues"),
+                Text("BundesLiga"),
+              ],
+            ),
+          ),
         ),
     );
   }

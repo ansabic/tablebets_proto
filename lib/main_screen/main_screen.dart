@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tablebets_proto/leagues/leagues_screen.dart';
 import 'package:tablebets_proto/main_screen/main_screen_cubit.dart';
 
 class MainScreen extends StatelessWidget {
@@ -15,6 +16,10 @@ class MainScreen extends StatelessWidget {
             bottomNavigationBar: BottomNavigationBar(
               onTap: (index) {
                 BlocProvider.of<MainScreenCubit>(context).changePosition(index);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LeaguesScreen()),
+                );
               },
               selectedItemColor: Colors.green,
               unselectedItemColor: Colors.grey,
