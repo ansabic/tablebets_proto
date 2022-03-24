@@ -21,9 +21,7 @@ class LeaguesScreen extends StatelessWidget {
               iconTheme: IconThemeData(color: Colors.blue),
               title: Row(
                 children: [
-                  Text(BlocProvider.of<LeaguesCubit>(blocContext)
-                      .getMatches()
-                      .toString()),
+                  Text("Leagues"),
                   Text("BundesLiga"),
                 ],
               ),
